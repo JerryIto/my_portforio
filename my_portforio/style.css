@@ -467,13 +467,16 @@ p {
   /*メインビジュアル*/
 
   #main-section {
-    align-items: center;
+    display: flex;
+    justify-content: center; /* 横方向に中央揃え */
+    align-items: center; /* 縦方向に中央揃え */
     text-align: center;
-
   }
 
   #main-section img{
-   width: 75%;
+    width: 75%;
+    height: auto;
+    align-items: center;
    overflow: hidden;
    animation-name:fadeInAnime;
    animation-duration: 2s;
@@ -497,6 +500,11 @@ p {
   height: 100%;
   margin-top: 15px;
   margin-bottom: 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   position: relative;
   animation-name: fadeleftAnime;
   animation-duration: 3s;
@@ -515,13 +523,27 @@ p {
   }
 }
 
+.works-item{
+  width: 50%; /* 2カラムにするために、幅を50%未満に設定 */
+  margin: 2.5%; 
+  box-sizing: border-box;
+}
+
+.works-list{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2列にする */
+  gap: 10px; /* カラム間の余白 */
+  width: 100%;
+  justify-items: center; /* 画像を中央揃え */
+}
+
  #main-works>h2{
   text-align: center;
  }
 
  .works-list img{
-  width: 50%;
-  height: 50%;
+  width: 100%; /* 画像を親要素の幅に合わせる */
+  height: auto; /* 画像の比率を保持 */
 }
 
  #main-works h2 span{
@@ -549,6 +571,10 @@ p {
   transform: translate(-50%); /*位置調整*/
   background-color: #666666; /*下線の色*/
   }
+
+ .works-item h3{
+  font-size: 15px;
+ }
 
     /*メインスキル*/
 
@@ -585,23 +611,22 @@ p {
  }
 
 .main-skill-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2列にする */
+  gap: 10px; /* カラム間の余白 */
+  width: 100%;
+  justify-items: center; /* コンテンツを中央揃え */
 }
 
 
 .skills{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%; /* 親要素の幅を100%に */
   text-align: center;
 }
 
 .skills img{
-  width: 100px;
-  height: 100px;
+  width: 40%; /* 画像を親要素の幅に合わせる */
+  height: auto; /* 画像の比率を保持 */
 }
 
 .skills-explain p {
@@ -630,6 +655,10 @@ p {
   margin-bottom: 15px;
   position: relative;
   height: 100%;
+  animation-name: fadeleftAnime;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
  }
 
  .main-about-container h2 {
@@ -641,10 +670,6 @@ p {
   align-items: center;
   text-align: center;
   width: 100%;
-  animation-name: fadeleftAnime;
-  animation-duration: 5s;
-  animation-fill-mode: forwards;
-  opacity: 0;
  }
 
  #main-about h2 span{
